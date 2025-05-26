@@ -1,0 +1,59 @@
+from abc import ABC, abstractmethod
+
+# Abstraction (abstract base class)
+class Vehicle(ABC):
+    @abstractmethod
+    def drive(self):
+        pass
+
+# Class with Encapsulation and Inheritance
+class Car(Vehicle):  # Inherits from Vehicle (Abstraction + Inheritance)
+    def __init__(self, brand, speed):
+        self.__brand = brand        # Encapsulation (private variable)
+        self.__speed = speed        # Encapsulation (private variable)
+
+    # Getter method for brand
+    def get_brand(self):
+        return self.__brand
+
+    # Setter method for speed
+    def set_speed(self, speed):
+        self.__speed = speed
+
+    def drive(self):  # Method required by abstract base class
+        print(f"{self.__brand} car is driving at {self.__speed} km/h")
+
+# Another class to demonstrate Polymorphism
+class Bike(Vehicle):
+    def __init__(self, brand):
+        self.brand = brand
+
+    def drive(self):  # Polymorphism: same method name, different behavior
+        print(f"{self.brand} bike is zooming by!")
+
+# Demonstrating Polymorphism
+def start_journey(vehicle):
+    vehicle.drive()
+
+# Creating Objects (Instantiation)
+car = Car("Toyota", 80)
+bike = Bike("Yamaha")
+
+# Accessing Encapsulated Data
+print("Brand (via getter):", car.get_brand())
+
+# Using setter to change speed
+car.set_speed(100)
+
+# Polymorphism in action
+start_journey(car)   # Calls Car's drive()
+start_journey(bike)  # Calls Bike's drive()
+
+# Demonstrating Method Overriding
+class ElectricCar(Car):
+    def drive(self):  # Overriding the drive() method
+        print(f"{self.get_brand()} electric car drives silently.")
+
+e_car = ElectricCar("Tesla", 120)
+start_journey(e_car)
+
