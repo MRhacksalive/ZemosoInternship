@@ -20,7 +20,7 @@ def divide(a: float, b: float):
     raises:
            custom error ifb=0
     returns:
-           result of the"""
+           result of the operation"""
     if b == 0:
         raise CustomError()
     return a / b
