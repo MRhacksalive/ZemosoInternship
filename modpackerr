@@ -1,0 +1,40 @@
+# custom exception-
+
+class CustomError(Exception):
+    """Custom exception for division by zero."""
+    def __init__(self, message="Cannot divide by zero!"):
+        self.message = message
+        super().__init__(self.message)
+
+# function for custom error:
+
+def divide(a, b):
+    """Divides a by b and raises a custom error if b is zero."""
+    if b == 0:
+        raise CustomError()
+    return a / b
+
+def main():
+    try:
+        
+        num1 = int(input("Enter numerator: "))
+        num2 = int(input("Enter denominator: "))
+
+        
+        result = divide(num1, num2)
+        print(f"Result: {result}")
+
+    # handling
+    except ValueError:
+        print("Error: Please enter valid integers.")
+    except CustomError as e:
+        print(f"Custom Exception: {e}")
+    except Exception as e:
+        print(f"Unexpected Error: {e}")
+    finally:
+        print("Program ended.")
+
+# starting-
+
+if __name__ == "__main__":
+    main()
