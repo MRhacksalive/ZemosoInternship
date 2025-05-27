@@ -1,17 +1,26 @@
 # custom exception-
 
 class CustomError(Exception):
-    """Custom exception for division by zero."""
-    """will return correct result after division"""
-    """else will raise the error"""
+    """
+    Divides 'a' by 'b'.
+
+    Raises:
+        CustomError: If 'b' is zero.
+    Returns:
+        float: The result of division.
+    """
     def __init__(self, message="Cannot divide by zero!"):
         self.message = message
         super().__init__(self.message)
 
 # function for custom error:
 
-def divide(a,b):
-    """Divides a by b and raises a custom error if b is zero."""
+def divide(a: float, b: float):
+    """Divides a by b 
+    raises:
+           custom error ifb=0
+    returns:
+           result of the"""
     if b == 0:
         raise CustomError()
     return a / b
