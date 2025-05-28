@@ -1,0 +1,53 @@
+# DECORATOR EXAMPLE 
+
+def log_decorator(func):
+    def wrapper(*args, **kwargs):
+        """adds functionality to the main function
+            Raises:
+                adds functionality
+            Returns:
+                 the original function with added functionality
+        """
+        print(f"Calling: {func.__name__}")
+        result = func(*args, **kwargs)
+        print(f"{func.__name__} finished")
+        return result
+    return wrapper
+
+@log_decorator 
+def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Ayush")
+
+
+# GENERATOR EXAMPLE-
+
+def count_up_to(n):
+    print("Generator started")
+    i = 1
+    while i <= n:
+        yield i
+        i += 1
+    print("Generator finished")
+
+for number in count_up_to(3):
+    print(f"Yielded: {number}")
+
+# otherway to call decorator - # Manually calling the decorated version
+# def log_decorator(func):
+#     def wrapper():
+#         print("Before function call")
+#         func()
+#         print("After function call")
+#     return wrapper
+
+# def say_hello():
+#     print("Hello!")
+
+# decorated_func = log_decorator(say_hello)
+# decorated_func()  
+
+#LAMDA FUNCTION
+square = lambda x: x * x
+print(square(4))  # Output: 16
