@@ -1,0 +1,29 @@
+# Creating tuple
+person = ("Aditya", 28, "Engineer")
+
+# Accessing elements
+print("Name:", person[0])
+print("Age:", person[1])
+print("Profession:", person[2])
+
+# Looping 
+for item in person:
+    print(item)
+
+# Tuple unpacking
+name, age, profession = person
+print(f"{name} is a {age}-year-old {profession}.")
+
+from collections import deque
+
+dq = deque([1, 2, 3])
+dq.appendleft(0)
+dq.append(4)
+print(dq)  # deque
+
+#list
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+fruits.remove("banana")
+for fruit in fruits:
+    print(fruit)
